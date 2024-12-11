@@ -1,0 +1,5 @@
+bool pick_request
+bool release_request
+---
+bool pick_success
+bool release_success
