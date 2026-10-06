@@ -9,3 +9,9 @@ ros_tools - 包括雷达fastlio2定位消息的转换节点，对地摄像头，
 vel_control - 中位机控制包，对定点移动、局部速度移动转换成微速度并最终传达给底层的系统  
 vision - opencv视觉节点，包括d435，摄像头的cv处理  
 yolov8 - 基于yolo的视觉追踪  
+
+## src_new（来自 Quadcopter 的麦轮裁剪版）
+- 新增目录 `src_new/`，代码来源于 `Hiromichi123/Quadcopter` 的 `main` 分支快照。
+- `src_new` 已裁剪为麦轮全向移动版本：移除/禁用四旋翼与 PX4 飞控相关入口，保留可复用 ROS2 通信、视觉与地面底盘接口。
+- 关键新增接口为 `core_2026` 中的 `mecanum_controller_node`，支持前后、左右平移和原地旋转，并输出四轮 `[FL, FR, RL, RR]` 转速映射。
+- 详细构建/运行与参数说明见 `src_new/README.md`。
