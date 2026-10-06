@@ -1,16 +1,11 @@
-# src_new (Quadcopter snapshot, reduced to mecanum base)
+# src_new (mecanum base)
 
-## Origin
-This directory is copied from `Hiromichi123/Quadcopter` `main` branch and then reduced for a ground mecanum chassis workflow.
+## Purpose
+This directory provides an independent ROS2 mecanum chassis workflow without affecting the existing `src/` tree.
 
 ## What is kept
-- ROS2 packages and resources useful for ground robotics workflows (`core_2026`, `messages`, `ros2_tools`, `cv_tools`, `vision_py`, `vision_rs`, `yolip`).
+- ROS2 packages and resources useful for ground robotics workflows (`core_2026`, `messages`, `ros2_tools`, `cv_tools`, `vision_py`).
 - Communication/message infrastructure for smart-car style control.
-
-## What was removed/disabled
-- Quadcopter flight-control and PX4 entrypoints.
-- Drone-only actions (`Takeoff`, `Land`, `GoToTarget`, `ExecuteMission`).
-- `core_rs` and PX4 bridge node (`lidar_to_px4_bridge`).
 
 ## Mecanum interface
 `core_2026` adds `mecanum_controller_node`:

@@ -1,21 +1,14 @@
-# src_new（Quadcopter 裁剪版：麦轮全向移动）
+# src_new（麦轮全向移动）
 
-## 来源与目的
-- 本目录代码来源：`Hiromichi123/Quadcopter` 仓库 `main` 分支快照。
-- 本目录用途：在不影响目标仓库原有 `src/` 内容的前提下，提供一套独立的 ROS2 麦轮底盘版本。
-- 已完成裁剪：移除/禁用四旋翼飞控、起降任务、PX4/姿态控制相关入口，保留对地移动有用的通信、消息与视觉基础设施。
+## 目录用途
+- 本目录用于在不影响仓库原有 `src/` 内容的前提下，提供一套独立的 ROS2 麦轮底盘版本。
+- 目录内容聚焦地面移动场景，保留通信、消息与视觉基础设施。
 
 ## 主要保留目录
 - `core_2026/`：主控包（保留小车任务节点，新增麦轮混控节点）
 - `messages/`：平台/底盘与视觉相关消息、服务（仅保留 `TrackVelocity` action）
 - `ros2_tools/`：里程计/相机相关基础节点（移除 `lidar_to_px4_bridge`）
-- `cv_tools/`、`vision_py/`、`yolip/`、`vision_rs/`：视觉与工具链（未引入无人机控制语义）
-
-## 已删减的无人机相关部分
-- 删除 `core_rs/`（Rust 四旋翼控制）
-- 删除 `core_2026` 中无人机主入口 launch（如 `core_launch.py`、`gazebo_launch.py`、`hover_*`）
-- 删除 `ros2_tools/src/lidar_to_px4_bridge.cpp`
-- 删除 `messages/action` 中 `Takeoff/Land/GoToTarget/ExecuteMission`
+- `cv_tools/`、`vision_py/`：视觉与工具链
 
 ## 麦轮控制接口
 新增节点：`core_2026::mecanum_controller_node`
